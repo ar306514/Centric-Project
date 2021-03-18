@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CentricProject.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+
+<p>
+    @Html.ActionLink("Create New Employee", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.location.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.position.position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.location.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.position.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.employeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.employeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.employeeID })
+        </td>
+    </tr>
+}
+
+</table>

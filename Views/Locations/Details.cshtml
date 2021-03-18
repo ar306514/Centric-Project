@@ -1,0 +1,24 @@
+﻿@model CentricProject.Models.Location
+
+@{
+    ViewBag.Title = "Location Details";
+}
+
+<h2>Location Details</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.locationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CentricProject.Models.Position>
+
+@{
+    ViewBag.Title = "Position List";
+}
+
+<h2>Position List</h2>
+
+<p>
+    @Html.ActionLink("Create New Position", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.position)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.positionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.positionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.positionID })
+        </td>
+    </tr>
+}
+
+</table>

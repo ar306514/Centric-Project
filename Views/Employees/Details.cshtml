@@ -1,0 +1,64 @@
+﻿@model CentricProject.Models.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<h2>Employee Details</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.location.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.position.position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position.position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.employeeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
