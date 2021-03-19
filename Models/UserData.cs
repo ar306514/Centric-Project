@@ -17,6 +17,8 @@ namespace CentricProject.Models
                 return firstName + lastName;
             }
         }
+        public string email { get; set; }
+        public DateTime dateOfBirth { get; set; }
         public string officeLocation { get; set; }
         public string position { get; set; }
         public DateTime startDate { get; set; }

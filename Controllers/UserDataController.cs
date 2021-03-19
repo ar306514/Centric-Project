@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CentricProject.DAL;
 using CentricProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CentricProject.Controllers
 {
@@ -47,13 +48,23 @@ namespace CentricProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,firstName,lastName,officeLocation,position,startDate")] UserData userData)
+        public ActionResult Create([Bind(Include = "ID,firstName,lastName,email,dateOfBirth,officeLocation,position,startDate")] UserData userData)
         {
             if (ModelState.IsValid)
             {
-                userData.ID = Guid.NewGuid();
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userData.ID = memberID;
+                // userData.ID = Guid.NewGuid();
                 db.userData.Add(userData);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    return View("duplicateUser");
+                }
                 return RedirectToAction("Index");
             }
 
@@ -80,7 +91,7 @@ namespace CentricProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,officeLocation,position,startDate")] UserData userData)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,email,dateOfBirth,officeLocation,position,startDate")] UserData userData)
         {
             if (ModelState.IsValid)
             {
