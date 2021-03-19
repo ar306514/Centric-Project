@@ -16,6 +16,7 @@ namespace CentricProject.DAL
         public DbSet<Employee> employee { get; set; }
         public DbSet<Location> location { get; set; }
         public DbSet<Position> position { get; set; }
+        public DbSet<UserData> userData { get; set; }
     }
 
 }
