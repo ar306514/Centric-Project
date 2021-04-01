@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace CentricProject.Controllers
 {
+    [Authorize]
     public class UserDataController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
@@ -38,6 +39,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: UserData/Create
+
         public ActionResult Create()
         {
             return View();

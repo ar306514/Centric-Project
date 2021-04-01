@@ -37,6 +37,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Positions/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +61,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Positions/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Positions/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

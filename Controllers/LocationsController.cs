@@ -11,6 +11,7 @@ using CentricProject.Models;
 
 namespace CentricProject.Controllers
 {
+    
     public class LocationsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
@@ -37,6 +38,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Locations/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +62,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Locations/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +94,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Locations/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

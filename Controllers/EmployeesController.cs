@@ -38,6 +38,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Employees/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.locationID = new SelectList(db.location, "locationID", "location");
@@ -65,6 +66,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Employees/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +102,7 @@ namespace CentricProject.Controllers
         }
 
         // GET: Employees/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
